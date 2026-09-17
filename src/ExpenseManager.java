@@ -28,18 +28,18 @@ public class ExpenseManager implements Report {
             return;
         }
 
-        System.out.println("\n========== ALL EXPENSES ==========");
+        System.out.println("\nALL EXPENSES");
 
         for (Expense expense : expenses) {
             expense.displayExpense();
-            System.out.println("----------------------------------");
+            System.out.println("");
         }
     }
 
     public void searchExpense(String keyword) {
         boolean found = false;
 
-        System.out.println("\n========== SEARCH RESULTS ==========");
+        System.out.println("\nSEARCH RESULTS");
 
         for (Expense expense : expenses) {
             String category = expense.getCategory().toLowerCase();
@@ -47,9 +47,7 @@ public class ExpenseManager implements Report {
 
             if (category.contains(keyword.toLowerCase()) ||
                 description.contains(keyword.toLowerCase())) {
-
                 expense.displayExpense();
-                System.out.println("----------------------------------");
                 found = true;
             }
         }
@@ -94,7 +92,7 @@ public class ExpenseManager implements Report {
             }
         }
 
-        System.out.println("\n========== MONTHLY SUMMARY ==========");
+        System.out.println("\nMONTHLY SUMMARY");
 
         if (count == 0) {
             System.out.println("No expenses found for " + monthYear);
@@ -111,7 +109,6 @@ public class ExpenseManager implements Report {
             System.out.println(entry.getKey() + " : Rs." + entry.getValue());
         }
 
-        System.out.println("=====================================");
     }
 
     public ArrayList<Expense> getExpenses() {
